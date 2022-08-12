@@ -1,0 +1,31 @@
+
+.post__item {
+    margin: 25px 0;
+}
+
+.post__ava {
+    width: 25px;
+    border-radius: 25px;
+}
+
+.like__btn {
+    color: white;
+    background-color: rgb(51, 51, 51) ;
+    padding: 10px 20px;
+    border-radius: 50px;
+    transition: background-color .1s linear;
+}
+
+.like__btn:hover {
+    background-color: rgb(77, 77, 77);
+}
+
+.like__btn:active {
+    background-color: rgb(250, 48, 48);
+}
+
+.like__img {
+    width: 12px;
+    color: white;
+}
+

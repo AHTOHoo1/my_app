@@ -1,0 +1,13 @@
+.prof__info {
+    margin: 30px;
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+.prof__img {
+    height: 200px;
+    width: 1000px;
+}
+
+
+

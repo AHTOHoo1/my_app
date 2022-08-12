@@ -1,0 +1,79 @@
+.dialogs {
+    display: grid;
+    grid-template-columns: 3fr 10fr;
+}
+
+.dialogs__items {
+    margin: 10px;
+}
+
+.dialog {
+    padding: 25px 10px;
+
+}
+
+.dialog__item {
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.75;
+    transition: opacity .1s linear;
+}
+
+.dialog__item:hover {
+    opacity: 1;
+}
+
+.messages {
+    margin: 20px;
+    border-radius: 10px;
+    border-style: groove;
+}
+
+
+.my_message {
+    margin: 25px 10px;
+    text-align: right;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background-color: #222222;
+}
+
+.other_message {
+    margin: 25px 10px;
+    text-align: left;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background-color: #222222;
+}
+
+.message_input {
+    color: white;
+    width: 90%;
+    height: 50px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: rgb(41, 41, 41);
+    font-size: 16px;
+    resize: none;
+}
+
+
+.to_send_img {
+    width: 50px;
+}
+
+
+.to_send_button {
+    border-radius: 100px;
+    background-color: #131313;
+    opacity: 0.75;
+    transition: opacity .1s linear;
+}
+
+.to_send_button:hover {
+    opacity: 1;
+}
+
+

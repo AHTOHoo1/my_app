@@ -1,0 +1,37 @@
+import './App.css';
+import Profile from './components/Profile';
+import Header from './components/Header';
+import Navbar from './components/Navbar';
+import { Route, BrowserRouter, Routes } from 'react-router-dom';
+import Dialogs from './components/dialogs/Dialogs';
+import News from './components/news/News';
+import Music from './components/music/Music';
+import Settings from './components/setings/Settings';
+import Friends from './components/friends/Friends';
+
+
+const App = (props) => {
+  return (
+    <BrowserRouter>
+      <div className='container'>
+        <div className='app-wrapper'>
+          <Header />
+          <Navbar state={props.state.navbar}/>
+          <div className='content'>
+            <Routes>
+              <Route path='/profile/*' element={ <Profile state={props.state.profilePage}/> } />
+              <Route path='/dialogs/*' element={ <Dialogs state={props.state.dialogsPage}/> } />
+              <Route path='/news/*' element={ <News /> } />
+              <Route path='/music/*' element={ <Music /> } />
+              <Route path='/settings/*' element={ <Settings /> } />
+              <Route path='/friends/*' element={ <Friends /> } />
+            </Routes>
+          </div>
+        </div>
+      </div>
+    </BrowserRouter>
+  );
+}
+
+
+export default App;

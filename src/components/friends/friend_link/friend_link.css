@@ -1,0 +1,17 @@
+.friend_ava_link {
+    width: 40px;
+    margin: 5px 5px 0 5px;
+}
+
+.friend_link {
+    white-space: nowrap;
+    max-width: 45px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.friend_name {
+    margin: 0 10px;
+}
+
