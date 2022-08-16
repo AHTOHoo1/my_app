@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import state from './redux/state'
+import { BrowserRouter } from 'react-router-dom';
 
 //End of DataBase==================================================
 
@@ -11,7 +12,9 @@ import state from './redux/state'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App state={state} />
+    <BrowserRouter>
+      <App state={state} />
+    </BrowserRouter>
   </React.StrictMode>
 );
 
