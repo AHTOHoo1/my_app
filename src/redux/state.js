@@ -19,6 +19,7 @@ let state = {
             { id: 2, text: 'how are you', message_class: 'other_message' },
             { id: 3, text: 'yo', message_class: 'my_message' }
         ],
+        newMessageText: ''
     },
 
     navbar: {
@@ -43,6 +44,22 @@ export let addPost = () => {
 
 export let updateNewPostText = (newText) => {
     state.profilePage.newPostText = newText;
+    rerenderEntireTree(state)
+}
+
+export let addMessage = (messageText) => {
+    let newMessage = {
+        id: 4,
+        text: messageText,
+        message_class: 'my_message'
+    }
+    state.dialogsPage.messages.push(newMessage)
+    state.dialogsPage.newMessageText = ''
+    rerenderEntireTree(state)
+}
+
+export let updateNewMessageText = (newText) => {
+    state.dialogsPage.newMessageText = newText;
     rerenderEntireTree(state)
 }
 

@@ -14,7 +14,12 @@ const Dialogs = (props) => {
 
     let addMessage = () => {
         let text = newMessageElement.current.value;
-        alert(text)
+        props.addMessage(text)
+    }
+
+    let onMessageChange = () => {
+        let text = newMessageElement.current.value
+        props.updateNewmessageText(text)
     }
 
     return (
@@ -25,7 +30,7 @@ const Dialogs = (props) => {
             <div className='messages'>
                 { MessagesElements }
                 <div>
-                    <textarea className='message_input' ref={ newMessageElement }></textarea>
+                    <textarea className='message_input' onChange={onMessageChange} value={props.newMessageText} ref={ newMessageElement }></textarea>
                     <button className='to_send_button' onClick={ addMessage }>
                         <img src='https://icons-for-free.com/iconfiles/png/512/media+message+send+telegram+icon-1320192980424419632.png' alt='to_send' className='to_send_img'/>
                     </button>
