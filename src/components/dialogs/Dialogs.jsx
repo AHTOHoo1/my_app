@@ -15,11 +15,12 @@ const Dialogs = (props) => {
     let addMessage = () => {
         let text = newMessageElement.current.value;
         props.addMessage(text)
+        newMessageElement.current.value = ''
     }
 
     let onMessageChange = () => {
         let text = newMessageElement.current.value
-        props.updateNewmessageText(text)
+        props.updateNewMessageText(text)
     }
 
     return (

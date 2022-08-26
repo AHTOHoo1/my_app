@@ -6,7 +6,7 @@ let state = {
             {id: 1, text: 'Hi, how are you?', likes: 20},
             {id: 2, text: "It's my first post", likes: 15},
         ],
-        newPostText: 'itka-kamasutra'
+        newPostText: ''
     },
     dialogsPage: {
         dialogs: [
@@ -47,10 +47,10 @@ export let updateNewPostText = (newText) => {
     rerenderEntireTree(state)
 }
 
-export let addMessage = (messageText) => {
+export let addMessage = () => {
     let newMessage = {
         id: 4,
-        text: messageText,
+        text: state.dialogsPage.newMessageText,
         message_class: 'my_message'
     }
     state.dialogsPage.messages.push(newMessage)
