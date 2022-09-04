@@ -1,12 +1,12 @@
-let rerenderEntireTree = () => {
+let callSubscriber = () => {
 
 }
 
 let state = {
     profilePage: {
         posts: [
-            {id: 1, text: 'Hi, how are you?', likes: 20},
-            {id: 2, text: "It's my first post", likes: 15},
+            { id: 1, text: 'Hi, how are you?', likes: 20 },
+            { id: 2, text: "It's my first post", likes: 15 },
         ],
         newPostText: ''
     },
@@ -26,27 +26,27 @@ let state = {
 
     navbar: {
         friends: [
-            {name: 'Gergunchik'},
-            {name: 'Gleb'},
-            {name: 'Timur'}
+            { name: 'Gergunchik' },
+            { name: 'Gleb' },
+            { name: 'Timur' }
         ],
     },
 }
 
 export const addPost = () => {
-    let newPost  = {
+    let newPost = {
         id: 3,
         text: state.profilePage.newPostText,
         likes: 0
     };
     state.profilePage.posts.push(newPost)
     state.profilePage.newPostText = ''
-    rerenderEntireTree(state)
+    callSubscriber(state)
 }
 
 export const updateNewPostText = (newText) => {
     state.profilePage.newPostText = newText;
-    rerenderEntireTree(state)
+    callSubscriber(state)
 }
 
 export const addMessage = () => {
@@ -57,16 +57,16 @@ export const addMessage = () => {
     }
     state.dialogsPage.messages.push(newMessage)
     state.dialogsPage.newMessageText = ''
-    rerenderEntireTree(state)
+    callSubscriber(state)
 }
 
 export const updateNewMessageText = (newText) => {
     state.dialogsPage.newMessageText = newText;
-    rerenderEntireTree(state)
+    callSubscriber(state)
 }
 
 export const subscribe = (observer) => {
-    rerenderEntireTree = observer
+    callSubscriber = observer
 }
 
 export default state;
