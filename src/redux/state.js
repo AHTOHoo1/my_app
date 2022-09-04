@@ -1,72 +1,78 @@
-let callSubscriber = () => {
+let store = {
+    _state: {
+        profilePage: {
+            posts: [
+                { id: 1, text: 'Hi, how are you?', likes: 20 },
+                { id: 2, text: "It's my first post", likes: 15 },
+            ],
+            newPostText: ''
+        },
+        dialogsPage: {
+            dialogs: [
+                { id: 1, friend: 'Gergunchik' },
+                { id: 2, friend: 'Glebik' },
+                { id: 3, friend: 'Timurchik' }
+            ],
+            messages: [
+                { id: 1, text: 'hey, whats up my nigga', message_class: 'my_message' },
+                { id: 2, text: 'how are you', message_class: 'other_message' },
+                { id: 3, text: 'yo', message_class: 'my_message' }
+            ],
+            newMessageText: ''
+        },
 
-}
-
-let state = {
-    profilePage: {
-        posts: [
-            { id: 1, text: 'Hi, how are you?', likes: 20 },
-            { id: 2, text: "It's my first post", likes: 15 },
-        ],
-        newPostText: ''
+        navbar: {
+            friends: [
+                { name: 'Gergunchik' },
+                { name: 'Gleb' },
+                { name: 'Timur' }
+            ],
+        },
     },
-    dialogsPage: {
-        dialogs: [
-            { id: 1, friend: 'Gergunchik' },
-            { id: 2, friend: 'Glebik' },
-            { id: 3, friend: 'Timurchik' }
-        ],
-        messages: [
-            { id: 1, text: 'hey, whats up my nigga', message_class: 'my_message' },
-            { id: 2, text: 'how are you', message_class: 'other_message' },
-            { id: 3, text: 'yo', message_class: 'my_message' }
-        ],
-        newMessageText: ''
+
+    getState() {
+        return this._state
     },
 
-    navbar: {
-        friends: [
-            { name: 'Gergunchik' },
-            { name: 'Gleb' },
-            { name: 'Timur' }
-        ],
+    _callSubscriber() {
+
     },
-}
 
-export const addPost = () => {
-    let newPost = {
-        id: 3,
-        text: state.profilePage.newPostText,
-        likes: 0
-    };
-    state.profilePage.posts.push(newPost)
-    state.profilePage.newPostText = ''
-    callSubscriber(state)
-}
+    addPost() {
+        let newPost = {
+            id: 3,
+            text: this._state.profilePage.newPostText,
+            likes: 0
+        };
+        this._state.profilePage.posts.push(newPost)
+        this._state.profilePage.newPostText = ''
+        this._callSubscriber(this._state)
+    },
+    updateNewPostText(newText) {
+        this._state.profilePage.newPostText = newText;
+        this._callSubscriber(this._state)
+    },
+    addMessage() {
+        let newMessage = {
+            id: 4,
+            text: this._state.dialogsPage.newMessageText,
+            message_class: 'my_message'
+        }
+        this._state.dialogsPage.messages.push(newMessage)
+        this._state.dialogsPage.newMessageText = ''
+        this._callSubscriber(this._state)
+    },
 
-export const updateNewPostText = (newText) => {
-    state.profilePage.newPostText = newText;
-    callSubscriber(state)
-}
-
-export const addMessage = () => {
-    let newMessage = {
-        id: 4,
-        text: state.dialogsPage.newMessageText,
-        message_class: 'my_message'
+    updateNewMessageText(newText) {
+        this._state.dialogsPage.newMessageText = newText;
+        this._callSubscriber(this._state)
+    },
+    subscribe(observer) {
+        this._callSubscriber = observer
     }
-    state.dialogsPage.messages.push(newMessage)
-    state.dialogsPage.newMessageText = ''
-    callSubscriber(state)
+
 }
 
-export const updateNewMessageText = (newText) => {
-    state.dialogsPage.newMessageText = newText;
-    callSubscriber(state)
-}
 
-export const subscribe = (observer) => {
-    callSubscriber = observer
-}
 
-export default state;
+export default store;
