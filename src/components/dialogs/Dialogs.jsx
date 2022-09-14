@@ -13,14 +13,16 @@ const Dialogs = (props) => {
     let newMessageElement = React.useRef(null)
 
     let addMessage = () => {
-        let text = newMessageElement.current.value;
-        props.addMessage(text)
+        // props.addMessage(text)
+        props.dispatch( { type: 'ADD-MESSAGE' } )
         newMessageElement.current.value = ''
+        
     }
 
     let onMessageChange = () => {
         let text = newMessageElement.current.value
-        props.updateNewMessageText(text)
+        //props.updateNewMessageText(text)
+        props.dispatch( { type: 'UPDATE-NEW-MESSAGE-TEXT', newText: text } )
     }
 
     return (
