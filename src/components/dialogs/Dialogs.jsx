@@ -7,36 +7,37 @@ import { addMessageActionCreator, updateNewMessageTextActionCreator } from '../.
 
 const Dialogs = (props) => {
 
-    let DialogsElements = props.state.dialogs.map( dialog => <Dialog id={dialog.id} friend={dialog.friend} /> )
+    let DialogsElements = props.state.dialogs.map(dialog => <Dialog id={dialog.id} friend={dialog.friend} />)
 
-    let MessagesElements = props.state.messages.map( message => <Message text={message.text} message_class={message.message_class}/> )
+    let MessagesElements = props.state.messages.map(message => <Message text={message.text} message_class={message.message_class} />)
 
-    let newMessageElement = React.useRef(null)
+    let newMessageText = props.state.newMessageText
+
 
     let addMessage = () => {
-        // props.addMessage(text)
-        props.dispatch( addMessageActionCreator() )
-        newMessageElement.current.value = ''
-        
+        props.dispatch(addMessageActionCreator())
+
     }
 
-    let onMessageChange = () => {
-        let text = newMessageElement.current.value
-        //props.updateNewMessageText(text)
-        props.dispatch( updateNewMessageTextActionCreator(text) )
+    let onMessageChange = (e) => {
+        let body = e.target.value;
+        props.dispatch(updateNewMessageTextActionCreator(body))
     }
 
     return (
         <div className='dialogs'>
             <div className='dialogs__items'>
-                { DialogsElements }
+                {DialogsElements}
             </div>
             <div className='messages'>
-                { MessagesElements }
+                {MessagesElements}
                 <div>
-                    <textarea className='message_input' onChange={onMessageChange} value={props.newMessageText} ref={ newMessageElement }></textarea>
-                    <button className='to_send_button' onClick={ addMessage }>
-                        <img src='https://icons-for-free.com/iconfiles/png/512/media+message+send+telegram+icon-1320192980424419632.png' alt='to_send' className='to_send_img'/>
+                    <textarea placeholder='Enter your message'
+                        className='message_input'
+                        value={newMessageText}
+                        onChange={onMessageChange}></textarea>
+                    <button className='to_send_button' onClick={addMessage}>
+                        <img src='https://icons-for-free.com/iconfiles/png/512/media+message+send+telegram+icon-1320192980424419632.png' alt='to_send' className='to_send_img' />
                     </button>
                 </div>
             </div>

@@ -2,6 +2,8 @@ const ADD_POST = 'ADD-POST'
 const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT'
 const ADD_MESSAGE = 'ADD_MESSAGE'
 const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE_NEW_MESSAGE_TEXT'
+const MY_MESSAGE = 'my_message'
+const OTHER_MESSAGE = 'other_message'
 
 
 let store = {
@@ -21,9 +23,9 @@ let store = {
                 { id: 3, friend: 'Timurchik' }
             ],
             messages: [
-                { id: 1, text: 'hey, whats up my nigga', message_class: 'my_message' },
-                { id: 2, text: 'how are you', message_class: 'other_message' },
-                { id: 3, text: 'yo', message_class: 'my_message' }
+                { id: 1, text: 'hey, whats up my nigga', message_class: MY_MESSAGE },
+                { id: 2, text: 'how are you', message_class: OTHER_MESSAGE },
+                { id: 3, text: 'yo', message_class: MY_MESSAGE }
             ],
             newMessageText: ''
         },
@@ -65,13 +67,9 @@ let store = {
             this._callSubscriber(this._state)
         }
         else if (action.type === ADD_MESSAGE) {
-            let newMessage = {
-                id: 4,
-                text: this._state.dialogsPage.newMessageText,
-                message_class: 'my_message'
-            }
-            this._state.dialogsPage.messages.push(newMessage)
-            this._state.dialogsPage.newMessageText = ''
+            let body = this._state.dialogsPage.newMessageText;
+            this._state.dialogsPage.newMessageText = '';
+            this._state.dialogsPage.messages.push({id: 4, text: body, message_class: MY_MESSAGE});
             this._callSubscriber(this._state)
         }
         else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
