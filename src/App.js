@@ -3,11 +3,11 @@ import Profile from './components/Profile';
 import Header from './components/Header';
 import Navbar from './components/Navbar';
 import { Route, Routes } from 'react-router-dom';
-import Dialogs from './components/dialogs/Dialogs';
 import News from './components/news/News';
 import Music from './components/music/Music';
 import Settings from './components/setings/Settings';
 import Friends from './components/friends/Friends';
+import DialogsContainer from './components/dialogs/DialogsContainer';
 
 
 const App = (props) => {
@@ -18,8 +18,8 @@ const App = (props) => {
         <Navbar state={props.state.navbar} />
         <div className='content'>
           <Routes>
-            <Route path='/profile/*' element={<Profile profilePage={props.state.profilePage} dispatch={props.dispatch} />} />
-            <Route path='/dialogs/*' element={<Dialogs state={props.state.dialogsPage} dispatch={props.dispatch} />} />
+            <Route path='/profile/*' element={<Profile store={props.store}/>} />
+            <Route path='/dialogs/*' element={<DialogsContainer store={props.store} />} />
             <Route path='/news/*' element={<News />} />
             <Route path='/music/*' element={<Music />} />
             <Route path='/settings/*' element={<Settings />} />
