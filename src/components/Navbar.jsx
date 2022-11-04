@@ -3,7 +3,7 @@ import FriendLink from "./friends/friend_link/FriendLink";
 
 const Navbar = (props) => {
 
-  let FriendsElements = props.state.friends.map( f => <FriendLink name={f.name} /> ) 
+  let FriendsElements = props.state.friends.map( f => <FriendLink name={f.name} key={f.id} /> ) 
 
   return (
     <nav className='nav'>
@@ -18,6 +18,9 @@ const Navbar = (props) => {
       </div>
       <div>
         <Link className='nav__link' to="/music">Music</Link>
+      </div>
+      <div>
+        <Link className="nav__link" to='/find_users'>Find users</Link>
       </div>
       <div>
         <Link className='nav__link' to="/settings">Settings</Link>
