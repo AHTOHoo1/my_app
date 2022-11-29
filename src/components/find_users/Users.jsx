@@ -1,6 +1,7 @@
 import './findUsers.css';
 import userPhoto from '../../assets/images/user_icon.webp'
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 let Users = (props) => {
 
@@ -22,7 +23,9 @@ let Users = (props) => {
             props.users.map(u => <div key={u.id}>
                 <span>
                     <div>
-                        <img src={u.photos.small != null ? u.photos.small : userPhoto} alt='userPhoto' width={50} className='usrePhoto'/>
+                        <Link to={'/profile/' + u.id}>
+                            <img src={u.photos.small != null ? u.photos.small : userPhoto} alt='userPhoto' width={50} className='usrePhoto' />
+                        </Link>
                     </div>
                     <div>
                         {u.followed ? <button className='button' onClick={() => { props.unfollow(u.id) }} >Unfollow</button>

@@ -1,5 +1,4 @@
 import './App.css';
-import Profile from './components/Profile';
 import Header from './components/Header';
 import Navbar from './components/Navbar';
 import { Route, Routes } from 'react-router-dom';
@@ -9,6 +8,7 @@ import Settings from './components/setings/Settings';
 import Friends from './components/friends/Friends';
 import DialogsContainer from './components/dialogs/DialogsContainer';
 import FindUsersContainer from './components/find_users/FindUsersContainer';
+import ProfileContainer from './components/ProfileContainer';
 
 
 const App = (props) => {
@@ -19,7 +19,7 @@ const App = (props) => {
         <Navbar state={props.state.navbar} />
         <div className='content'>
           <Routes>
-            <Route path='/profile/*' element={<Profile />} />
+            <Route path='/profile/*' element={<ProfileContainer />} />
             <Route path='/dialogs/*' element={<DialogsContainer />} />
             <Route path='/news/*' element={<News />} />
             <Route path='/music/*' element={<Music />} />

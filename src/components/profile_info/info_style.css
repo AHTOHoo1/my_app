@@ -9,5 +9,6 @@
     width: 1000px;
 }
 
-
-
+.about__data {
+    margin: 5px 0 5px 5px;
+}

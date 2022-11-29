@@ -60,5 +60,3 @@ const FindUsersContainer = connect(mapStateToProps, {
 })(UsersContainer)
 
 export default FindUsersContainer;
-
-
