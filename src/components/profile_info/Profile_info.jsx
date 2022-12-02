@@ -1,5 +1,6 @@
 import Preloader from '../common/preloader/Preloader';
 import './info_style.css';
+import userPhoto from '../../assets/images/user_icon.webp'
 
 const ProfileInfo = (props) => {
 
@@ -11,7 +12,7 @@ const ProfileInfo = (props) => {
         <div>
             <img src='https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg' alt='shapka' className='prof__img'/>
             <div className='prof__info'>
-                <div><img src={props.profile.photos.large} className='ava__img' alt='ava' width={150} height={150} /></div>
+                <div><img src={props.profile.photos.large != null ? props.profile.photos.large : userPhoto } className='ava__img' alt='ava' width={150} height={150} /></div>
                 <div className='about'>
                     <div className='about__data'>○ Name: {props.profile.fullName}</div>
                     <div className='about__data'>○ About me: {props.profile.aboutMe}</div>
@@ -24,5 +25,4 @@ const ProfileInfo = (props) => {
 
 export default ProfileInfo;
 
-
-//<img src='https://cdn-icons-png.flaticon.com/512/1053/1053244.png' className='my_ava__img' alt='ava' width={100} height={100}/>
+//src={props.profile.photos.large} className='ava__img' alt='ava' width={150} height={150}

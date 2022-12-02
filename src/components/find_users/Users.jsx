@@ -28,18 +28,14 @@ let Users = (props) => {
                         </Link>
                     </div>
                     <div>
-                        {u.followed ? <button className='button' onClick={() => { props.unfollow(u.id) }} >Unfollow</button>
-                            : <button className='button' onClick={() => { props.follow(u.id) }} >Follow</button>}
+                        {u.followed ? <button className='button' onClick={() => { props.unfollow(u.id) }} >♡ Unfollow</button>
+                            : <button className='button' onClick={() => { props.follow(u.id) }} >♥ Follow</button>}
                     </div>
                 </span>
                 <span>
                     <span>
                         <div>{u.name}</div>
                         <div>{u.status}</div>
-                    </span>
-                    <span>
-                        <div>{'u.location.country'},</div>
-                        <div>{'u.location.city'}</div>
                     </span>
                 </span>
             </div>)
