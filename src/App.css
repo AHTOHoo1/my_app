@@ -31,10 +31,31 @@ body {
   background-color: #222222;
 }
 
-.header img {
+.header_img {
   width: 60px;
   margin: 0 20px;
 }
+
+
+.login_block {
+  float: right;
+}
+
+.login {
+  text-decoration: none;
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.75;
+  font-size: 20px;
+
+  transition: opacity .1s linear;
+}
+
+.login:hover {
+  opacity: 1;
+}
+
+
 
 
 /*Content=========================================*/

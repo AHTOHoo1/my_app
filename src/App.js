@@ -1,5 +1,4 @@
 import './App.css';
-import Header from './components/Header';
 import Navbar from './components/Navbar';
 import { Route, Routes } from 'react-router-dom';
 import News from './components/news/News';
@@ -9,13 +8,14 @@ import Friends from './components/friends/Friends';
 import DialogsContainer from './components/dialogs/DialogsContainer';
 import FindUsersContainer from './components/find_users/FindUsersContainer';
 import ProfileContainer from './components/ProfileContainer';
+import HeaderContainer from './components/HeaderContainer';
 
 
 const App = (props) => {
   return (
     <div className='container'>
       <div className='app-wrapper'>
-        <Header />
+        <HeaderContainer />
         <Navbar state={props.state.navbar} />
         <div className='content'>
           <Routes>
