@@ -2,6 +2,7 @@ import './findUsers.css';
 import userPhoto from '../../assets/images/user_icon.webp'
 import React from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 let Users = (props) => {
 
@@ -28,8 +29,36 @@ let Users = (props) => {
                         </Link>
                     </div>
                     <div>
-                        {u.followed ? <button className='button' onClick={() => { props.unfollow(u.id) }} >♡ Unfollow</button>
-                            : <button className='button' onClick={() => { props.follow(u.id) }} >♥ Follow</button>}
+                        {u.followed 
+                        ? <button className='button' onClick={() => {
+                        
+                            axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
+                                withCredentials: true,
+                                headers: {
+                                    "API-KEY": "a5b85c9c-857d-4025-b5e2-88405f8ecdff"
+                                }
+                            }).then(response => {
+                                if (response.data.resultCode === 0) {
+                                    props.unfollow(u.id)
+                                }
+                            })
+                            
+                        
+                        }} >♡ Unfollow</button>
+                            : <button className='button' onClick={() => { 
+
+                                    axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
+                                        withCredentials: true,
+                                        headers: {
+                                            "API-KEY": "a5b85c9c-857d-4025-b5e2-88405f8ecdff"
+                                        }
+                                    }).then(response => {
+                                        if (response.data.resultCode === 0) {
+                                            props.follow(u.id)
+                                        }
+                                    })
+                                
+                                }} >♥ Follow</button>}
                     </div>
                 </span>
                 <span>
@@ -38,9 +67,9 @@ let Users = (props) => {
                         <div>{u.status}</div>
                     </span>
                 </span>
-            </div>)
+            </div >)
         }
-    </div>
+    </div >
 }
 
 export default Users;

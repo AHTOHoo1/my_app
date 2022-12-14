@@ -56,6 +56,22 @@ body {
 }
 
 
+.profile_name {
+  text-decoration: none;
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.75;
+  font-size: 20px;
+
+  transition: opacity .1s linear;
+}
+
+.profile_name:hover {
+  opacity: 1;
+}
+
+
+
 
 
 /*Content=========================================*/
