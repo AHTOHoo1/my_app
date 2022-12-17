@@ -10,7 +10,6 @@ class UsersContainer extends React.Component {
     componentDidMount() {
         this.props.togleIsFetching(true);
         usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
-            debugger;
             this.props.togleIsFetching(false);
             this.props.setUsers(data.items);
             this.props.setTotalUsersCount(data.totalCount)
