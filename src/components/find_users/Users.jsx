@@ -2,7 +2,6 @@ import './findUsers.css';
 import userPhoto from '../../assets/images/user_icon.webp'
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { followAPI } from '../../API/api';
 
 let Users = (props) => {
 
@@ -31,24 +30,12 @@ let Users = (props) => {
                     <div>
                         {u.followed
                             ? <button className='button' disabled={props.followingInProgress.some( id => id === u.id )} onClick={() => {
-                                props.togleFollowingProgress(true, u.id)
-                                followAPI.unfollow(u.id).then(data => {
-                                    if (data.resultCode === 0) {
-                                        props.unfollow(u.id)
-                                    }
-                                    props.togleFollowingProgress(false, u.id)
-                                })
+                                props.unfollow(u.id)
 
 
                             }} >♡ Unfollow</button>
                             : <button className='button' disabled={props.followingInProgress.some( id => id === u.id )} onClick={() => {
-                                props.togleFollowingProgress(true, u.id)
-                                followAPI.follow(u.id).then(data => {
-                                    if (data.resultCode === 0) {
-                                        props.follow(u.id)
-                                    }
-                                    props.togleFollowingProgress(false, u.id)
-                                })
+                                props.follow(u.id)
 
                             }} >♥ Follow</button>}
                     </div>
