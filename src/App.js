@@ -9,6 +9,7 @@ import DialogsContainer from './components/dialogs/DialogsContainer';
 import FindUsersContainer from './components/find_users/FindUsersContainer';
 import ProfileContainer from './components/ProfileContainer';
 import HeaderContainer from './components/HeaderContainer';
+import Login from './components/login/Login';
 
 
 const App = (props) => {
@@ -28,6 +29,7 @@ const App = (props) => {
             <Route path='/find_users/*' element={<FindUsersContainer />} />
             <Route path='/settings/*' element={<Settings />} />
             <Route path='/friends/*' element={<Friends />} />
+            <Route path='/login/*' element={<Login />} />
           </Routes>
         </div>
       </div>
