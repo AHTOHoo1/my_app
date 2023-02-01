@@ -1,5 +1,5 @@
 import './Dialogs_style.css'
-import { addMessage, updateNewMessageText } from '../../redux/dialogs_reducer'
+import { addMessage } from '../../redux/dialogs_reducer'
 import Dialogs from './Dialogs'
 import { connect } from 'react-redux'
 import { withAuthRedirect } from '../../hoc/withAuthRedirect'
@@ -31,6 +31,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(authRedirectComponen
 */
 
 export default compose(
-    connect(mapStateToProps, {addMessage, updateNewMessageText}),
+    connect(mapStateToProps, {addMessage}),
     withAuthRedirect
 )(Dialogs);

@@ -2,7 +2,24 @@ import Dialog from './dialog/Dialog'
 import './Dialogs_style.css'
 import Message from './message/Message'
 import React from 'react'
+import { Field, reduxForm } from 'redux-form'
 
+
+const AddMessageForm = (props) => {
+    return (
+        <form onSubmit={props.handleSubmit}>
+            <Field placeholder='Enter your message'
+                className='message_input'
+                component="textarea"
+                name='newMessageBody' />
+            <button className='to_send_button' >
+                <img src='https://icons-for-free.com/iconfiles/png/512/media+message+send+telegram+icon-1320192980424419632.png' alt='to_send' className='to_send_img' />
+            </button>
+        </form>
+    )
+}
+
+const AddMessageFormRedux = reduxForm({form: "dialogAddMessageForm"})(AddMessageForm)
 
 const Dialogs = (props) => {
 
@@ -12,17 +29,9 @@ const Dialogs = (props) => {
 
     let MessagesElements = state.messages.map(message => <Message text={message.text} message_class={message.message_class} key={message.id} />)
 
-    let newMessageText = state.newMessageText
 
-
-    let addMessage = () => {
-        props.addMessage()
-
-    }
-
-    let onMessageChange = (e) => {
-        let body = e.target.value;
-        props.updateNewMessageText(body)
+    let addNewMessage = (values) => {
+        props.addMessage(values.newMessageBody)
     }
 
     return (
@@ -32,15 +41,7 @@ const Dialogs = (props) => {
             </div>
             <div className='messages'>
                 {MessagesElements}
-                <div>
-                    <textarea placeholder='Enter your message'
-                        className='message_input'
-                        value={newMessageText}
-                        onChange={onMessageChange}></textarea>
-                    <button className='to_send_button' onClick={addMessage}>
-                        <img src='https://icons-for-free.com/iconfiles/png/512/media+message+send+telegram+icon-1320192980424419632.png' alt='to_send' className='to_send_img' />
-                    </button>
-                </div>
+                <AddMessageFormRedux onSubmit={addNewMessage} />
             </div>
         </div>
     )
