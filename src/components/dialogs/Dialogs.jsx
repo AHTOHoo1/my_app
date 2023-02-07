@@ -3,15 +3,19 @@ import './Dialogs_style.css'
 import Message from './message/Message'
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
+import { maxLengthCreator, required } from '../../validators'
+import { Textarea } from '../common/FormControl/FormControl'
 
+const maxLength10 = maxLengthCreator(10)
 
 const AddMessageForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
             <Field placeholder='Enter your message'
                 className='message_input'
-                component="textarea"
-                name='newMessageBody' />
+                component={Textarea}
+                name='newMessageBody'
+                validate={[required, maxLength10]} />
             <button className='to_send_button' >
                 <img src='https://icons-for-free.com/iconfiles/png/512/media+message+send+telegram+icon-1320192980424419632.png' alt='to_send' className='to_send_img' />
             </button>

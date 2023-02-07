@@ -19,7 +19,7 @@
     background-color: rgb(146, 146, 146);
 }
 
-.text__imput {
+.text__input {
     color: white;
     width: 50%;
     height: 100px;
@@ -31,3 +31,20 @@
     font-size: 16px;
     resize: none;
 }
+
+
+.text__input_error{
+    color: white;
+    width: 50%;
+    height: 100px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid red;
+    border-radius: 4px;
+    background-color: rgb(41, 41, 41);
+    font-size: 16px;
+    resize: none;
+}
+
+
+

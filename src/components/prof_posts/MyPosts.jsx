@@ -3,6 +3,13 @@ import Post from './post/post'
 import React from 'react'
 import { Field, Form, Formik } from 'formik'
 
+const validatePost = (value) => {
+    if (!value) {
+        return 'Required';
+    } else if (value.length > 10) {
+        return 'Max length is 10 simbols';
+    }
+}
 
 const MyPosts = (props) => {
 
@@ -18,18 +25,24 @@ const MyPosts = (props) => {
                 <h2>My posts</h2>
                 <div>
                     <Formik initialValues={{ post: "" }} onSubmit={addNewPost}>
-                        <Form>
-                            <div>
-                                <Field className='text__imput'
-                                    component="textarea"
-                                    name="post"
-                                    placeholder='Enter your text' />
-                            </div>
-                            <div>
-                                <button className='btn'
-                                    type='submit'>Add post</button>
-                            </div>
-                        </Form>
+                        {({ errors, touched }) => (
+                            <Form>
+                                <div>
+                                    <Field className={errors.post && touched.post ? "text__input_error" : "text__input"}
+                                        component="textarea"
+                                        name="post"
+                                        validate={validatePost}
+                                        placeholder='Enter your text' />
+                                </div>
+                                {errors.post && touched.post && (
+                                    <div>{errors.post}</div>
+                                )}
+                                <div>
+                                    <button className='btn'
+                                        type='submit'>Add post</button>
+                                </div>
+                            </Form>
+                        )}
                     </Formik>
                 </div>
                 <div className='posts'>
