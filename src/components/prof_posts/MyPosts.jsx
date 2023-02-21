@@ -5,9 +5,9 @@ import { Field, Form, Formik } from 'formik'
 
 const validatePost = (value) => {
     if (!value) {
-        return 'Required';
+        return '☼ Required!';
     } else if (value.length > 10) {
-        return 'Max length is 10 simbols';
+        return 'Max length is 10 simbols(';
     }
 }
 
