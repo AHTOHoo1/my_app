@@ -80,6 +80,7 @@ export const togleFollowingProgress = (isFetching, userId) => ({ type: TOGLE_IS_
 export const getUsers = (currentPage, pageSize) => {
     return (dispatch) => {
         dispatch(togleIsFetching(true));
+        dispatch(setCurrentPage(currentPage))
         usersAPI.getUsers(currentPage, pageSize).then(data => {
             dispatch(togleIsFetching(false));
             dispatch(setUsers(data.items));
@@ -113,4 +114,4 @@ export const unfollow = (userId) => {
 }
 
 
-export default usersReducer
+export default usersReducer;
