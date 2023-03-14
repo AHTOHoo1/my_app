@@ -1,6 +1,6 @@
 import './App.css';
 import Navbar from './components/Navbar';
-import { Route, Routes, useParams } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import News from './components/news/News';
 import Music from './components/music/Music';
 import Settings from './components/setings/Settings';
@@ -14,7 +14,6 @@ import React, { Component } from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { initializeApp } from './redux/app_reducer';
-import { getUserData } from './redux/auth_reducer';
 import Preloader from './components/common/preloader/Preloader';
 
 

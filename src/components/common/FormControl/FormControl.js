@@ -7,7 +7,7 @@ const Element = Element => ({ input, meta, ...props }) => {
     return (
         <div>
             { hasError && <span>{meta.error}</span> }
-        <div className={"form__control" + ' ' + (hasError ? "error" : "")}>
+        <div className={'form__control' + ' ' + (hasError ? 'error' : '')}>
             <Element {...input} {...props}  />
         </div>
         </div>
