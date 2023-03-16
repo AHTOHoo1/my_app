@@ -11,18 +11,18 @@ import { Navigate } from 'react-router-dom';
 const LoginForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit} >
-            <div>
-                <Field placeholder='Email' name={"email"} component={Input} validate={[required]} />
+            <div >
+                <Field placeholder='Email' name={"email"} component={Input} validate={[required]} className='form__field' />
             </div>
-            <div>
-                <Field placeholder='Password' name={"password"} type="password" component={Input} validate={[required]} />
+            <div >
+                <Field placeholder='Password' name={"password"} type="password" component={Input} validate={[required]} className='form__field' />
             </div>
-            <div>
-                <Field type={'checkbox'} name={"remember_me"} component={Input} /> Remember me?
+            <div className='checkbox-wrapper-14'>
+                <Field type={'checkbox'} name={"remember_me"} component={Input} className='switch' id="s1-14"/> Remember me?
             </div>
             { props.error && <div>{props.error}</div> }
             <div>
-                <button>Submit</button>
+                <button className='submit__button'>Sign in</button>
             </div>
         </form>
     )
