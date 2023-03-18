@@ -2,6 +2,7 @@ import Preloader from '../common/preloader/Preloader';
 import './info_style.css';
 import userPhoto from '../../assets/images/user_icon.webp'
 import ProfileStatus from './ProfileStatus';
+import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 
 const ProfileInfo = (props) => {
 
@@ -16,7 +17,7 @@ const ProfileInfo = (props) => {
                 <div><img src={props.profile.photos.large != null ? props.profile.photos.large : userPhoto } className='ava__img' alt='ava' width={150} height={150} /></div>
                 <div className='about'>
                     <div>Name: {props.profile.fullName}</div>
-                    <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
+                    <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} />
                 </div>
             </div>
         </div>
