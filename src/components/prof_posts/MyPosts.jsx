@@ -6,18 +6,22 @@ import { Field, Form, Formik } from 'formik'
 const validatePost = (value) => {
     if (!value) {
         return '☼ Required!';
-    } else if (value.length > 10) {
-        return 'Max length is 10 simbols(';
+    } else if (value.length > 30) {
+        return 'Max length is 30 simbols(';
     }
 }
 
-const MyPosts = (props) => {
+const MyPosts = React.memo(props => {
+console.log("render")
 
-    let PostsElements = props.posts.map(p => <Post text={p.text} likes={p.likes} key={p.id} />)
+    let PostsElements = props.posts
+    .map(p => <Post text={p.text} likes={p.likes} key={p.id} />).reverse()
 
-    let addNewPost = (values) => {
+    let addNewPost = (values, {resetForm}) => {
         props.addPost(values.post)
+        resetForm()
     }
+
 
     return (
         <div>
@@ -51,6 +55,6 @@ const MyPosts = (props) => {
             </div >
         </div >
     )
-}
+})
 
 export default MyPosts

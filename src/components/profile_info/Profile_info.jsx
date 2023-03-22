@@ -1,7 +1,6 @@
 import Preloader from '../common/preloader/Preloader';
 import './info_style.css';
-import userPhoto from '../../assets/images/user_icon.webp'
-import ProfileStatus from './ProfileStatus';
+import userPhoto from '../../assets/images/user_icon.webp';
 import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 
 const ProfileInfo = (props) => {
