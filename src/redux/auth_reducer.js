@@ -27,53 +27,38 @@ const authReducer = (state = initialState, action) => {
 
 const setAuthUserData = (id, email, login, isAuth) => ({ type: SET_USER_DATA, data: { id, email, login, isAuth } })
 
-export const getUserData = () => {
-    return (dispatch) => {
-        authAPI.userData().then(data => {
-            if (data.resultCode === 0) {
-                let { id, login, email } = data.data;
-                dispatch(setAuthUserData(id, email, login, true))
-            }
-        })
+export const getUserData = () => async (dispatch) => {
+    let data = await authAPI.userData()
+    if (data.resultCode === 0) {
+        let { id, login, email } = data.data;
+        dispatch(setAuthUserData(id, email, login, true))
     }
 }
+
+
 
 export const login = (email, password, rememberMe) => {
-    return (dispatch) => {
-        authAPI.login(email, password, rememberMe).then(response => {
-            if (response.data.resultCode === 0) {
-                dispatch(getUserData())
-            }
-            else {
-                let message = response.data.messages.length > 0 ? response.data.messages[0] : "Something is wrong";
-                dispatch(stopSubmit("login", { _error: message }));
-            }
-        })
-    }
-}
-
-
-export const logout = () => {
-    return (dispatch) => {
-        authAPI.logout().then(response => {
-            if (response.data.resultCode === 0) {
-                dispatch(setAuthUserData(null, null, null, false))
-            }
-        })
-    }
-}
-
-
-
-/*
-export const getUserData = () => (dispatch) => {
-    authAPI.userData().then(data => {
-        if (data.resultCode === 0) {
-            let {id, login, email} = data.data;
-            dispatch(setAuthUserData(id, email, login))
+    return async (dispatch) => {
+        let response = await authAPI.login(email, password, rememberMe)
+        if (response.data.resultCode === 0) {
+            dispatch(getUserData())
         }
-    })
+        else {
+            let message = response.data.messages.length > 0 ? response.data.messages[0] : "Something is wrong";
+            dispatch(stopSubmit("login", { _error: message }));
+        }
+    }
 }
-*/
+
+
+
+export const logout = () => async (dispatch) => {
+    let response = await authAPI.logout()
+    if (response.data.resultCode === 0) {
+        dispatch(setAuthUserData(null, null, null, false))
+    }
+}
+
+
 
 export default authReducer;
