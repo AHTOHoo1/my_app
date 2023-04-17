@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/my_app/static/css/main.345f69c0.css",
-    "main.js": "/my_app/static/js/main.258db200.js",
+    "main.js": "/my_app/static/js/main.d0113923.js",
     "static/css/328.1a329b66.chunk.css": "/my_app/static/css/328.1a329b66.chunk.css",
     "static/js/328.fe8a761f.chunk.js": "/my_app/static/js/328.fe8a761f.chunk.js",
     "static/css/541.19842e31.chunk.css": "/my_app/static/css/541.19842e31.chunk.css",
-    "static/js/541.b6cfe461.chunk.js": "/my_app/static/js/541.b6cfe461.chunk.js",
+    "static/js/541.774586a2.chunk.js": "/my_app/static/js/541.774586a2.chunk.js",
     "static/css/797.72aef8b2.chunk.css": "/my_app/static/css/797.72aef8b2.chunk.css",
     "static/js/797.c60a690e.chunk.js": "/my_app/static/js/797.c60a690e.chunk.js",
     "static/js/787.28cb0dcd.chunk.js": "/my_app/static/js/787.28cb0dcd.chunk.js",
@@ -15,11 +15,11 @@
     "static/media/preloader.svg": "/my_app/static/media/preloader.63d1ef1449ea25b465f1911d3c9ecd19.svg",
     "index.html": "/my_app/index.html",
     "main.345f69c0.css.map": "/my_app/static/css/main.345f69c0.css.map",
-    "main.258db200.js.map": "/my_app/static/js/main.258db200.js.map",
+    "main.d0113923.js.map": "/my_app/static/js/main.d0113923.js.map",
     "328.1a329b66.chunk.css.map": "/my_app/static/css/328.1a329b66.chunk.css.map",
     "328.fe8a761f.chunk.js.map": "/my_app/static/js/328.fe8a761f.chunk.js.map",
     "541.19842e31.chunk.css.map": "/my_app/static/css/541.19842e31.chunk.css.map",
-    "541.b6cfe461.chunk.js.map": "/my_app/static/js/541.b6cfe461.chunk.js.map",
+    "541.774586a2.chunk.js.map": "/my_app/static/js/541.774586a2.chunk.js.map",
     "797.72aef8b2.chunk.css.map": "/my_app/static/css/797.72aef8b2.chunk.css.map",
     "797.c60a690e.chunk.js.map": "/my_app/static/js/797.c60a690e.chunk.js.map",
     "787.28cb0dcd.chunk.js.map": "/my_app/static/js/787.28cb0dcd.chunk.js.map",
@@ -28,6 +28,6 @@
   },
   "entrypoints": [
     "static/css/main.345f69c0.css",
-    "static/js/main.258db200.js"
+    "static/js/main.d0113923.js"
   ]
 }
