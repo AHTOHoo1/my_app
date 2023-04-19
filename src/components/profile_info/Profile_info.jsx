@@ -9,11 +9,18 @@ const ProfileInfo = (props) => {
         return <Preloader />
     }
 
+    const onMailPhotoSelected = (e) => {
+        if (e.target.files.length) {
+            props.savePhoto(e.target.files[0])
+        }
+    }
+
     return (
         <div>
             <img src='https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg' alt='shapka' className='prof__img'/>
             <div className='prof__info'>
-                <div><img src={props.profile.photos.large != null ? props.profile.photos.large : userPhoto } className='ava__img' alt='ava' width={150} height={150} /></div>
+                <div><img src={props.profile.photos.large != null ? props.profile.photos.large : userPhoto } className='ava__img' alt='ava' width={150} height={150} />
+                { props.isOwner && <input type='file' onChange={onMailPhotoSelected} /> }</div>
                 <div className='about'>
                     <div>Name: {props.profile.fullName}</div>
                     <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} />

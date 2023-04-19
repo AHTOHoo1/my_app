@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { compose } from 'redux';
 import { withAuthRedirect } from '../hoc/withAuthRedirect';
-import { setUserProfile, getUserProfile, getStatus, updateStatus } from '../redux/profile_reducer';
+import { setUserProfile, getUserProfile, getStatus, updateStatus, savePhoto } from '../redux/profile_reducer';
 import './../App.css'
 import Profile from './Profile';
 
@@ -11,14 +11,14 @@ import Profile from './Profile';
 const withRouter = WrappedComponent => props => {
     const params = useParams();
     return (
-        <WrappedComponent {...props} params={params}/>
+        <WrappedComponent {...props} params={params} />
     )
 }
 
 
 class ProfileContainer extends React.Component {
 
-    componentDidMount() {
+    refreshProfile() {
         let userId = this.props.params.userId;
         if (!userId) {
             userId = this.props.profileId
@@ -27,9 +27,24 @@ class ProfileContainer extends React.Component {
         this.props.getStatus(userId)
     }
 
+    componentDidMount() {
+        this.refreshProfile()
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (this.props.params.userId !== prevProps.params.userId) {
+            this.refreshProfile()
+        }
+    }
+
     render() {
         return (
-            <Profile {...this.props} profile={this.props.profile} status={this.props.status} updateStatus={this.props.updateStatus}/>
+            <Profile {...this.props}
+                    isOwner={!this.props.params.userId}
+                    profile={this.props.profile} 
+                    status={this.props.status} 
+                    updateStatus={this.props.updateStatus}
+                    savePhoto={this.props.savePhoto} />
         )
     }
 }
@@ -46,9 +61,10 @@ export default compose(
         setUserProfile,
         getUserProfile,
         updateStatus,
-        getStatus
+        getStatus,
+        savePhoto
     }),
     withRouter,
     withAuthRedirect
-    
+
 )(ProfileContainer)
