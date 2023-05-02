@@ -3,10 +3,10 @@ import './post_style.css'
 
 const Post = (props) => {
 
-    let [value, setValue] = useState(props.likes);
+    let [value, setValue] = useState(props.likes, props.id);
     let plusLike = () => {
         setValue(value + 1)
-    }    
+    }
 
     return (
         <div>

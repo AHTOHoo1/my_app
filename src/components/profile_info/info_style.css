@@ -9,14 +9,16 @@
     width: 1000px;
 }
 
-.about__data {
-    margin: 5px 0 5px 5px;
+.about_me {
+    margin: 5px 0 0 38px;
 }
 
+
 .status__input {
+    margin: 10px 0 0 10px;
     color: white;
     width: 90%;
-    height: 50px;
+    height: 40px;
     padding: 12px 20px;
     box-sizing: border-box;
     border: 2px solid #ccc;
@@ -24,5 +26,209 @@
     background-color: rgb(41, 41, 41);
     font-size: 16px;
     resize: none;
+}
+
+.upload_file_block {
+    margin: 10px 0 0 10px;
+}
+
+
+input[type="file"] {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+label[for="file-upload"] {
+  background-color: #8a1fe9;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.25em;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+label[for="file-upload"]:hover {
+  background-color: #7b16d3;
+}
+
+.upload_file_img {
+    width: 30px;
+}
+
+
+.change_data_button {
+  background-color: #8a1fe9;
+  cursor: pointer;
+  padding: 10px 13px;
+  border-radius: 50px;
+  display: inline-block;
+}
+
+.change_data_button:hover {
+  background-color: #7b16d3;
+}
+
+
+.change_data_form {
+font-size: 14px;
+margin: 2px 0;
+border-radius: 6px;
+line-height: 1.5;
+padding: 5px 5px;
+transition: box-shadow 100ms ease-in, border 100ms ease-in, background-color 100ms ease-in;
+border: 2px solid #dee1e2;
+color: rgb(14, 14, 16);
+background: #dee1e2;
+height: 25px;
+}
+.change_data_form:hover {
+    border-color: #ccc;
+}
+.change_data_form:focus{
+    border-color: #9147ff;
+    background: #fff;
+}
+
+
+
+
+.profile_checkbox {
+  --active: #275EFE;
+  --active-inner: #fff;
+  --focus: 2px rgba(39, 94, 254, .3);
+  --border: #BBC1E1;
+  --border-hover: #275EFE;
+  --background: #fff;
+  --disabled: #F6F8FF;
+  --disabled-inner: #E1E6F9;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  height: 21px;
+  outline: none;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  margin: 0;
+  cursor: pointer;
+  border: 1px solid var(--bc, var(--border));
+  background: var(--b, var(--background));
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
+}
+
+.profile_checkbox:after {
+  content: "";
+  display: block;
+  left: 0;
+  top: 0;
+  position: absolute;
+  transition: transform var(--d-t, 0.3s) var(--d-t-e, ease), opacity var(--d-o, 0.2s);
+}
+
+.profile_checkbox:checked {
+  --b: var(--active);
+  --bc: var(--active);
+  --d-o: .3s;
+  --d-t: .6s;
+  --d-t-e: cubic-bezier(.2, .85, .32, 1.2);
+}
+
+.profile_checkbox:disabled {
+  --b: var(--disabled);
+  cursor: not-allowed;
+  opacity: 0.9;
+}
+
+.profile_checkbox:disabled:checked {
+  --b: var(--disabled-inner);
+  --bc: var(--border);
+}
+
+.profile_checkbox:disabled+label {
+  cursor: not-allowed;
+}
+
+.profile_checkbox:hover:not(:checked):not(:disabled) {
+  --bc: var(--border-hover);
+}
+
+.profile_checkbox:focus {
+  box-shadow: 0 0 0 var(--focus);
+}
+
+.profile_checkbox:not(.switch) {
+  width: 21px;
+}
+
+.profile_checkbox:not(.switch):after {
+  opacity: var(--o, 0);
+}
+
+.profile_checkbox:not(.switch):checked {
+  --o: 1;
+}
+
+.profile_checkbox+label {
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  margin-left: 4px;
+}
+
+.profile_checkbox:not(.switch) {
+  border-radius: 7px;
+}
+
+.profile_checkbox:not(.switch):after {
+  width: 5px;
+  height: 9px;
+  border: 2px solid var(--active-inner);
+  border-top: 0;
+  border-left: 0;
+  left: 7px;
+  top: 4px;
+  transform: rotate(var(--r, 20deg));
+}
+
+.profile_checkbox:not(.switch):checked {
+  --r: 43deg;
+}
+
+.profile_checkbox.switch {
+  width: 38px;
+  border-radius: 11px;
+}
+
+.profile_checkbox.switch:after {
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  width: 17px;
+  height: 17px;
+  background: var(--ab, var(--border));
+  transform: translateX(var(--x, 0));
+}
+
+.profile_checkbox.switch:checked {
+  --ab: var(--active-inner);
+  --x: 17px;
+}
+
+.profile_checkbox.switch:disabled:not(:checked):after {
+  opacity: 0.6;
+}
+
+
+.profile_checkbox * {
+  box-sizing: inherit;
+}
+
+.profile_checkbox *:before,
+.profile_checkbox *:after {
+  box-sizing: inherit;
 }
 
