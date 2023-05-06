@@ -52,7 +52,7 @@ const ProfileData = (props) => {
         <div>
             <div className='about_me' >Name: {props.profile.fullName}</div>
             <div className='about_me'>○ Looking for a job: {props.profile.lookingForAJob ? 'Yes, for sure' : 'No no no'}</div>
-            {props.lookingForAJob && <div className='about_me' >○ About me: {props.profile.aboutMe} </div>}
+            { props.profile.lookingForAJob && <div className='about_me' >○ Skills: {props.profile.lookingForAJobDescription} </div>}
             <div className='about_me' >○ About me: {props.profile.aboutMe}</div>
             <div className='about_me' >○ Contacts: {Object.keys(props.profile.contacts).map(key => {
                 return <Contact key={key} contactTitle={key} contactValue={props.profile.contacts[key]} />
