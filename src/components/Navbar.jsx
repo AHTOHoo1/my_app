@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import FriendLink from "./friends/friend_link/FriendLink";
+//import FriendLink from "./friends/friend_link/FriendLink";
 
 const Navbar = (props) => {
 
-  let FriendsElements = props.state.friends.map( f => <FriendLink name={f.name} key={f.id} /> ) 
+  //let FriendsElements = props.state.friends.map( f => <FriendLink name={f.name} key={f.id} /> ) 
 
   return (
     <nav className='nav'>
@@ -27,9 +27,6 @@ const Navbar = (props) => {
       </div>
       <div>
         <Link className="nav__link" to='/friends'>Friends</Link>
-      </div>
-      <div className="fast_link_friends">
-        { FriendsElements }
       </div>
     </nav>
   )
