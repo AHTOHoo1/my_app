@@ -12,7 +12,6 @@ const validatePost = (value) => {
 }
 
 const MyPosts = React.memo(props => {
-console.log("render")
 
     let PostsElements = props.posts
     .map(p => <Post text={p.text} likes={p.likes} key={p.id} />)

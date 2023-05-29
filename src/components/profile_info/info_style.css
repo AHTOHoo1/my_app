@@ -4,9 +4,8 @@
     grid-template-columns: 2fr 10fr;
 }
 
-.prof__img {
-    height: 200px;
-    width: 1000px;
+.ava__img {
+  border-radius: 10px;
 }
 
 .about_me {

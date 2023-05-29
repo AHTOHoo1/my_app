@@ -51,7 +51,7 @@ body {
   color: #fff;
   background-color: #5E5DF0;
   color: white;
-  padding: 1em 1.5em;
+  padding: 10px 20px;
   position: relative;
   text-decoration: none;
   text-transform: uppercase;
@@ -66,48 +66,8 @@ body {
   cursor: pointer;
 }
 
-
-.profile_name {
-  text-decoration: none;
-  color: #fff;
-  text-decoration: none;
-  opacity: 0.75;
-  font-size: 20px;
-
-  transition: opacity .1s linear;
-}
-
-.profile_name:hover {
-  opacity: 1;
-}
-
-
 .fast_link_friends {
   margin: 0 10px;
-}
-
-/* CSS */
-.logout_button {
-  background: #5E5DF0;
-  border-radius: 999px;
-  box-shadow: #5E5DF0 0 10px 20px -10px;
-  box-sizing: border-box;
-  color: #FFFFFF;
-  cursor: pointer;
-  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 24px;
-  opacity: 1;
-  outline: 0 solid transparent;
-  padding: 8px 18px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  width: fit-content;
-  word-break: break-word;
-  border: 0;
-  margin: 0 5px;
 }
 
 
@@ -141,12 +101,12 @@ body {
 
 
 .nav__link:hover {
-  opacity: 1;
+  opacity: 0.9;
 }
 
 
 .nav__link:active {
-  color: rgb(137, 19, 206);
+  opacity: 1;
 }
 
 .fast_link_friends {
