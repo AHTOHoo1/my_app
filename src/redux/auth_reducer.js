@@ -1,15 +1,17 @@
-import {authAPI, securityAPI} from "../API/api";
+import {authAPI, profileAPI, securityAPI} from "../API/api";
 import {stopSubmit} from "redux-form";
 
 const SET_USER_DATA = 'samurai-network/auth/SET_USER_DATA';
 const GET_CAPTCHA_URL_SUCCESS = 'samurai-network/auth/GET_CAPTCHA_URL_SUCCESS';
+const SET_OWNER_INFO = 'auth/SET_OWNER_INFO'
 
 let initialState = {
     id: null,
     email: null,
     login: null,
     isAuth: false,
-    captchaUrl: null // if null, then captcha is not required
+    captchaUrl: null, // if null, then captcha is not required
+    profileOwnerInfo: null
 };
 
 const authReducer = (state = initialState, action) => {
@@ -20,11 +22,18 @@ const authReducer = (state = initialState, action) => {
                 ...state,
                 ...action.payload
             }
+        case SET_OWNER_INFO:
+            return {
+                ...state,
+                profileOwnerInfo: action.info
+            }
         default:
             return state;
     }
 }
 
+
+const setOwnerInfo = (info) => ({type: SET_OWNER_INFO, info})
 
 export const setAuthUserData = (id, email, login, isAuth) => ({
     type: SET_USER_DATA, payload:
@@ -37,10 +46,12 @@ export const getCaptchaUrlSuccess = (captchaUrl) => ({
 
 export const getUserData = () => async (dispatch) => {
     let response = await authAPI.userData();
-
+    
     if (response.data.resultCode === 0) {
         let {id, login, email} = response.data.data;
+        let responseForProfile = await profileAPI.getUser(id);
         dispatch(setAuthUserData(id, email, login, true));
+        dispatch(setOwnerInfo(responseForProfile.data))
     }
 }
 
@@ -74,5 +85,6 @@ export const logout = () => async (dispatch) => {
         dispatch(setAuthUserData(null, null, null, false));
     }
 }
+
 
 export default authReducer;

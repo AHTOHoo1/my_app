@@ -7,8 +7,6 @@ import Header from "./Header";
 
 class HeaderContainer extends React.Component {
 
-    
-
     render() {
         return <Header {...this.props} />
     }
@@ -16,10 +14,11 @@ class HeaderContainer extends React.Component {
 
 const mapStateToProps = (state) => ({
     isAuth: state.auth.isAuth,
-    login: state.auth.login
+    login: state.auth.login,
+    ownerPhoto: state.auth.profileOwnerInfo.photos.large
 });
 
 
 export default compose(
-    connect(mapStateToProps, { logout})
+    connect(mapStateToProps, { logout })
 )(HeaderContainer)
