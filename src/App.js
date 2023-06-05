@@ -13,6 +13,7 @@ import { connect, Provider } from 'react-redux';
 import { initializeApp } from './redux/app_reducer';
 import Preloader from './components/common/preloader/Preloader';
 import store from './redux/redux_store';
+import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
 
 const DialogsContainer = React.lazy(() => import('./components/dialogs/DialogsContainer'));
 const ProfileContainer = React.lazy(() => import('./components/ProfileContainer'));
@@ -44,7 +45,7 @@ class App extends Component {
           <HeaderContainer />
           <Navbar state={this.props.state} />
           <div className='content'>
-            <Suspense fallback={<div><Preloader/></div>} >
+            <Suspense fallback={<div><Preloader /></div>} >
               <Routes>
                 <Route exact path='/' element={<Navigate to={'/profile'} />} />
                 <Route path='/profile' element={<ProfileContainer />} >
@@ -76,12 +77,20 @@ let AppContainer = compose(
 
   connect(mapStateToProps, { initializeApp }))(App);
 
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
 
 const MainApp = (props) => {
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL} >
       <Provider store={store}>
-        <AppContainer state={store.getState()} />
+        <ThemeProvider theme={darkTheme}>
+          <CssBaseline />
+          <AppContainer state={store.getState()} />
+        </ThemeProvider>
       </Provider>
     </BrowserRouter>
   )
