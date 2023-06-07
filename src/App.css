@@ -21,37 +21,27 @@ body {
   "n c";
 
   grid-template-rows: 60px 1fr;
-  grid-template-columns: 2fr 10fr;
+  grid-template-columns: 1fr 10fr;
 }
 
 /*Header==============================================*/
 
 .header {
   grid-area: h;
-  background-color: #222222;
 }
 
 .header_img {
-  width: 60px;
-  margin: 0 20px;
-}
-
-
-.login_block_autorized {
-  float: right;
+  width: 50px;
   margin: 5px 0 0 0;
 }
 
-.login_block_guest {
-  float: right;
-  margin: 18px 5px 0 0;
-}
+
 
 .login {
   color: #fff;
   background-color: #5E5DF0;
   color: white;
-  padding: 10px 20px;
+  padding: 7px 18px;
   position: relative;
   text-decoration: none;
   text-transform: uppercase;
@@ -76,7 +66,7 @@ body {
 
 .content {
   grid-area: c;
-  margin: 20px 0;
+  margin: 30px 20px;
 }
 
 
@@ -85,41 +75,12 @@ body {
 
 .nav {
   grid-area: n;
-  margin: 20px 20px 20px 0;
-  background-color:#222222;
+  margin: 20px 0 0 0;
 }
 
 .nav__link {
-  margin: 0 20px;
-  color: #fff;
-  text-decoration: none;
-  opacity: 0.75;
-  font-size: 20px;
-
-  transition: opacity .1s linear;
-}
-
-
-.nav__link:hover {
-  opacity: 0.9;
-}
-
-
-.nav__link:active {
-  opacity: 1;
-}
-
-.fast_link_friends {
-  display: flex;
-}
-
-.friend_nav_link {
   text-decoration: none;
   color: #fff;
-  opacity: .8;
-  transition: opacity .1s linear;
 }
 
-.friend_nav_link:hover {
-  opacity: 1;
-}
+

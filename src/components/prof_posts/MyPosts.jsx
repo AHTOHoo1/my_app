@@ -23,7 +23,7 @@ const MyPosts = React.memo(props => {
 
 
     return (
-        <div>
+        <div className='just_posts'>
             <div>
                 <h2>My posts</h2>
                 <div>

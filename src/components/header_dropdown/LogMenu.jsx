@@ -24,7 +24,7 @@ const LogMenu = (props) => {
 
   return (
     <React.Fragment>
-      <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center', margin: "0 5px 5px 0" }}>
+      <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
         
         <Tooltip title="Account settings">
           <IconButton
