@@ -35,7 +35,7 @@ const ProfileInfo = (props) => {
                         <input type='file' id="file-upload" name="file-upload" onChange={onMailPhotoSelected} />
                     </div>}</div>
                 <div className='about'>
-                    {props.isOwner ? <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} isOwner={props.isOwner} /> : <span>Status: {props.status}</span> }
+                    {props.isOwner ? <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} isOwner={props.isOwner} /> : <span className='hzs_status' >Status: {props.status}</span> }
                     
                     {editMode ? <ProfileDataForm {...props} onSubmit={onSubmit} deactiveActiveMode={() => {setEditMode(false)}} /> 
                     : <ProfileData {...props} activeEditMode={() => {setEditMode(true)}} />}
